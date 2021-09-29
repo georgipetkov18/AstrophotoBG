@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "АстрофотоBG Админ - Изтрий Снимка";
+}
+<div class="container secondaryPage">
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label></label>
+            <input class="form-control" id="deletePicture" placeholder="Въведи ID на снимката" />
+            <span class="text-danger"></span>
+        </div>      
+    </form>
+    
+    <div class="row">
+        <button id="adminDeletePicture" class="btn btn-secondary" type="submit">Изтрий снимка</button>
+        <button id="pictureInfo" class="btn btn-secondary" href="#">Прегледай снимка</button>
+    </div>
+    <br />
+    <div id="visualizePicture"></div>
+</div>

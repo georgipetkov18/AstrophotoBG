@@ -1,0 +1,17 @@
+﻿@model UserPicturesViewModel
+@{
+    ViewData["Title"] = $"{Model.UserName} - Снимки";
+}
+
+<div class="container secondaryPage">
+    <div class="row">
+        @foreach (var picture in Model.Pictures)
+        {
+            <div class="col-md-2 container" style="margin-bottom:15px">
+                <a href="/Pictures/ById/@picture.Id">
+                    <img class="card-img-top" height="150" src="@Url.Action("DisplayPicture", "Pictures", new { id = picture.Id })" alt="@picture.Name" />
+                </a>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@model AstrophotoBG.Models.UserViewModel
+
+@{
+    ViewData["Title"] = Model.UserName;
+}
+
+<div class="py-5 px-4">
+    <div class="mx-auto">
+        <div class="bg-white shadow rounded overflow-hidden userPage">
+            <div class="px-4 pt-0 pb-4 cover">
+                <div class="media align-items-end profile-head">
+                    <div>
+                        <h4>@Model.UserName</h4>
+                        <p>@Model.Location</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">@Model.PicturesCount</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Снимки</small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">@Model.Rating</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Репутация</small>
+                    </li>
+                </ul>
+            </div>
+            <div class="px-4 py-3 description">
+                <h5 class="mb-0">Описане:</h5>
+                <div class="p-4 rounded shadow-sm bg-light">
+                    <p class="font-italic mb-0">@Model.Description</p>
+                </div>
+            </div>
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0">Снимки от потребителя:</h5>
+                </div>
+                <div class="row">
+                    @foreach (var picture in Model.RecentPictures)
+                    {
+                        <div class="col-md-6 container" style="margin-bottom:15px">
+                            <a href="/Pictures/ById/@picture.Id">
+                                <img class="card-img-top" height="450" src="@Url.Action("DisplayPicture", "Pictures", new { id = picture.Id })" alt="@picture.Name" />
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <form asp-controller="Users" asp-action="Pictures" asp-route-userName="@Model.UserName">
+                <input name="@Model.UserName" value="Виж още снимки от @Model.UserName" type="submit" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>
+</div>

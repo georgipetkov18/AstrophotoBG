@@ -1,0 +1,19 @@
+﻿@page "/Account/Manage"
+@model IndexModel
+@{
+    ViewData["Title"] = "АстрофотоBG - Профил";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <p><b class="profileInfo">Потребителско име:</b> @Model.AppUser.UserName</p>
+        <p><b style="font-size:large">Email:</b> @Model.AppUser.Email</p>
+        <p><b style="font-size:large">Местоположение:</b> @Model.AppUser.Location</p>
+        <p><b style="font-size:large">Описание:</b> @Model.AppUser.ShortDescription</p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

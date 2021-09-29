@@ -1,0 +1,48 @@
+﻿@model AstrophotoBG.Models.GalleryViewModel
+
+@{
+    ViewData["Title"] = "АстрофотоBG - Галерия";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="container secondaryPage">
+        <div class="row">
+            <div class="col-md-6">
+                <span>Избери категория: </span>
+                <select id="galleryCategoriesFilter" style="margin-left:3px">
+                    <option value="all">Всички</option>
+                    <option value="planets">Планети</option>
+                    <option value="galaxies">Галактики</option>
+                    <option value="stars">Звезди</option>
+                    <option value="star clusters">Звездни купове</option>
+                    <option value="nebulas">Мъглявини</option>
+                    <option value="sun">Слънце</option>
+                    <option value="moon">Луна</option>
+                    <option value="milky way">Млечен път</option>
+                    <option value="others">Други</option>
+                </select>
+            </div>
+
+            <div id="galeryOrder" class="col-md-6">
+                <span style="float:right">
+                    <span>Подреди по: </span>
+                    <select id="galeryOrderSelect">
+                        <option value="newest">Дата на добавяне (най-нови)</option>
+                        <option value="oldest">Дата на добавяне (най-стари)</option>
+                    </select>
+                </span>
+            </div>
+        </div>
+        <div id="pictures" class="row">
+
+        </div>
+    </div>  
+</body>
+</html>

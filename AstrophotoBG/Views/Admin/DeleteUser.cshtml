@@ -1,0 +1,14 @@
+﻿@model AstrophotoBG.Models.DeleteUserViewModel
+@{
+    ViewData["Title"] = "АстрофотоBG Админ - Изтрий Потребител";
+}
+<div class="container secondaryPage">
+    <form asp-controller="Admin" asp-action="DelUser" method="get" enctype="multipart/form-data">
+        <div class="form-group">
+            <label></label>
+            <input class="form-control" asp-for="@Model.UserName" placeholder="Въведи потребителско име" />
+            <span class="text-danger"></span>
+        </div>
+        <button class="btn btn-secondary" type="submit">Изтрий потребител</button>
+    </form>
+</div>

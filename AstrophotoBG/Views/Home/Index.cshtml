@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@model AstrophotoBG.Models.IndexPictureListViewModel
+
+@{
+    ViewData["Title"] = "АстрофотоBG";
+}
+
+<div class="container-fluid" id="intro">
+    <div class="container">
+        <h4 class="display-4 text-center" style="font-size:5vw;"><b class="heading">Добре дошли в дома на</b></h4>
+        <h1 class="display-1 text-center" style="font-size:7vw;"><b class="heading">БЪЛГАРСКАТА</b></h1>
+        <h1 class="display-1 text-center" style="font-size:7vw;"><b class="heading">АСТРОФОТОГРАФИЯ</b></h1>
+        <form id="introButton">
+            <button class="button" asp-controller="Pictures" asp-action="Upload"><span>Качи снимка сега </span></button>
+        </form>
+    </div>
+</div>
+
+<div class="container-fluid content">
+    <div>
+        <h1>Наскоро качени</h1>
+        <section class="hero-section">
+            <div class="card-grid">
+                @foreach (var picture in Model.LastPictures)
+                {
+                    <a class="card" href="/Pictures/ById/@picture.Id">
+                        <div class="card__background" style="background-image: url('Pictures/DisplayPicture/@picture.Id')"></div>
+                        <div class="card__content">
+                            <p class="card__user">@picture.UserName</p>
+                            <h3 class="card__heading">@picture.Name</h3>
+                        </div>
+                    </a>
+                }
+            </div>
+        </section>
+
+
+
+
+
+        <form id="galleryButton">
+            <button class="button" asp-controller="Gallery" asp-action="Pictures"><span>Открий още </span></button>
+        </form>
+        <hr />
+    </div>
+
+    <div id="forSite">
+        <h1>За сайта</h1>
+        <p class="indexText">
+            <strong>
+                АстрофотоBG e български уеб сайт за астрофотография!
+                Тук можете да се насладите на най-добрите български фотографии, свързани с астрономията!
+                Целта на АстрофотоBG е да популяризира науката астрономия в България. Ние от екипа на АстрофотоBG се 
+                обединяваме около кауза да представим любителската астрономия по един нов и достъпен за широката публика начин. 
+                Имаме желанието тази кауза да бъде отворена за всеки, който иска да допринесе с нещо за нея.
+            </strong>
+        </p>
+        <hr />
+    </div>
+
+    <img id="moonMain" src="~/images/moon.jpg" alt="moon" />
+    <hr />
+
+    <div id="forUs">
+        <h1>За нас</h1>
+        <div class="rowforus">
+            <div class="columnforus">
+                <div class="cardforus">
+                    <h3>Ние сме ученици от МГ "Акад. Кирил Попов" - гр. Пловдив</h3>                   
+                </div>
+            </div>
+
+            <div class="columnforus">
+                <div class="cardforus">
+                    <h3>Ние сме любители на астрономията и високите технологии</h3>                    
+                </div>
+            </div>
+
+            <div class="columnforus">
+                <div class="cardforus">
+                    <h3>Занимаваме се с програмиране и дигитален маркетинг</h3>
+                </div>
+            </div>
+
+            <div class="columnforus">
+                <div class="cardforus">
+                    <h3>Целта ни е да популяризираме астрономията</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
